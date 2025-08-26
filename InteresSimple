@@ -1,10 +1,10 @@
 Algoritmo InteresesSimple
-	Escribir "Ingrese el valor del Capital: "
-	Leer Capital
-	Escribir "Ingrese el valor de la Tasa: "
-	Leer Tasa
-	Escribir "Ingrese el valor de Anos: "
-	Leer Anos
-	Interessimple <- Capital*Tasa*Anos
+	Escribir "Ingrese el valor del C: "
+	Leer C
+	Escribir "Ingrese el valor de la T: "
+	Leer T
+	Escribir "Ingrese el valor de N: "
+	Leer N
+	Interessimple <- C*T*N
 	Escribir "El Interessimple es: ",Interessimple
 FinAlgoritmo
