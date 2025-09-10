@@ -9,13 +9,11 @@ int main()
     cin >> nota;
 
     if (nota >= 51) 
-    {
-        cout << "El estudiante APRUEBA la materia." << endl;
-    } 
-    else 
-    {
-        cout << "El estudiante REPRUEBA la materia." << endl;
-    }
 
+        cout << "El estudiante APRUEBA la materia." << endl;
+    else 
+
+       cout << "El estudiante REPRUEBA la materia." << endl;
+    
     return 0;
 }
