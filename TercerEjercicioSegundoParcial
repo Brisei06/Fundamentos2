@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numProductos, peso, total;
+    char continuar;
+
+    do {
+        total = 0;
+        cout << "Ingrese el numero de productos: ";
+        cin >> numProductos;
+
+        while (numProductos <= 0) {
+            cout << "El numero de productos debe ser mayor a 0. Intente nuevamente: ";
+            cin >> numProductos;
+        }
+
+        for (int i = 1; i <= numProductos; i++) {
+            cout << "Ingrese el peso del producto " << i << " (en gramos): ";
+            cin >> peso;
+
+            while (peso <= 0) {
+                cout << "El peso debe ser mayor a 0. Ingrese nuevamente: ";
+                cin >> peso;
+            }
+
+            total += peso;
+        }
+
+        cout << "El peso total del paquete es: " << total << " gramos." << endl;
+        cout << "Gracias por su compra. ¡Dulce dia!" << endl;
+
+        cout << "¿Desea registrar otro pedido?: ";
+        cin >> continuar;
+        cout << endl;
+
+    } while (continuar == 'S' || continuar == 's');
+
+    cout << "Programa finalizado." << endl;
+    return 0;
+}
