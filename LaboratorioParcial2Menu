@@ -1,0 +1,93 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int contarmayor(int a, int b, int c);
+int sumaserie(int x);
+double productos(int cantidadProductos);
+
+int main() {
+    int opcion;
+    int a, b, c;
+
+    do {
+        
+        cout << "\nElige una opcion:\n";
+        cout << "1. Determinar el mayor de tres numeros\n";
+        cout << "2. Calcular la serie con ciclo For\n";
+        cout << "3. Calcular el peso total de productos\n";
+        cout << "0. Salir\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1: {
+            cout << "Introduce el primer numero: ";
+            cin >> a;
+            cout << "Introduce el segundo numero: ";
+            cin >> b;
+            cout << "Introduce el tercer numero: ";
+            cin >> c;
+            cout << "El mayor numero es: " << contarmayor(a, b, c) << endl;
+            break;
+        }
+
+        case 2: {
+            int x;
+            cout << "Introduce el valor de x: ";
+            cin >> x;
+            cout << "La suma total de la serie es: " << sumaserie(x) << endl;
+            break;
+        }
+
+        case 3: {
+            int cantidadProductos;
+            cout << "¿Cuantos productos deseas ingresar? ";
+            cin >> cantidadProductos;
+
+            cout << "El peso total de los productos es: "
+                << productos(cantidadProductos) << " gramos.\n";
+            break;
+        }
+
+        case 4:
+            cout << "¡Hasta luego!\n";
+            break;
+
+        default:
+            cout << "Opcion no valida. Intenta de nuevo.\n";
+            break;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+int contarmayor(int a, int b, int c) {
+    if (a >= b && a >= c)
+        return a;
+    else if (b >= a && b >= c)
+        return b;
+    else
+        return c;
+}
+
+int sumaserie(int x) {
+    int s = 0;
+    for (int i = 1; i <= 10; i++) {
+        s += pow(x, i);
+    }
+    return s;
+}
+
+double productos(int cantidadProductos) {
+    double pesoTotal = 0.0;
+    for (int i = 1; i <= cantidadProductos; i++) {
+        double peso;
+        cout << "Ingresa el peso del producto " << i << " (en gramos): ";
+        cin >> peso;
+        pesoTotal += peso;
+    }
+    return pesoTotal;
+}
