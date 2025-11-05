@@ -1,0 +1,80 @@
+// EjemploArreglo.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+void cargar(int vec[], int tam);
+void mostrar(int vec[], int tam);
+float promedio(int vec[], int tam); //reemplaza por la funcion que le toco ayer
+bool esCapicua(int vec[], int tam);
+int devolvermaxmin(int vec[], int tam, int& min);
+
+int main()
+{
+    int opcion, A[MAX], n, minimo;
+    //pedir el tamanio del vector
+    do {
+        cout << "Ingrese el tamanio del arreglo: ";
+        cin >> n;
+    } while ((n < 0)||(n > MAX));
+    do {
+        cout << "\t MENU" << endl;
+        cout << "\n\n1 Cargar el vector";
+        cout << "\n2 Mostrar el vector";
+        cout << "\n3 Calcular el promedio";
+        cout << "\n4 Devolver maximo o minimo";
+        cout << "\n0 Salir" << endl;
+        cin >> opcion;
+        switch (opcion){
+        case 1: cargar(A, n);
+            break;
+        case 2: mostrar(A, n);
+            break;
+        case 3: promedio(A, n);
+            break;
+        case 4: cout << "El mayor es: " << devolvermaxmin(A, n, minimo) << endl;
+            cout << "El valor menor es: " << minimo << endl;
+            break;
+        case 0: cout << "Salir " << endl;
+            break;
+        default: cout << "No existe la opcion" << endl;
+            break;
+        }
+    } while (opcion != 0);
+    return 0;
+}
+
+//Declaraciones
+void cargar(int vec[], int tam) {
+    for (int i = 0; i < tam; i++) {
+        cout << "vec[" << i << "]= ";
+        cin >> vec[i];
+    }
+}
+void mostrar(int vec[], int tam) {
+    for (int i = 0; i < tam; i++) {
+        cout << "vec[" << i << "]= ";
+        cin >> vec[i];
+    }
+}
+float promedio(int vec[], int tam) {
+    float suma = 0;
+    for (int i = 0; i < tam; i++)
+        suma = suma + vec[i]; //suma =+ vec[i];
+    return suma / tam;
+}
+
+int devolvermaxmin(int vec[], int tam, int& min) {
+    int max = vec[0];
+    min = vec[0];
+    for (int i = 1; i < tam; i++) {
+        if (max < vec[i])
+            max = vec[i];
+        if (min > vec[i])
+            min = vec[i];
+    }
+    return max;
+}
