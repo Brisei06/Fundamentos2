@@ -1,0 +1,131 @@
+// TercerParcial.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+void cargar(int ventas[], int n);
+void mostrar(int ventas[], int n);
+bool esPrimo(int n);
+void promedioVentas();
+
+int main()
+{
+    int opcion;
+    do {
+        cout << "1. Invertir un numero entero" << endl;
+        cout << "2. Determinar si el numero entero es primo o no" << endl;
+        cout << "3. Calcular el promedio de ventas" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Elija una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1: {
+            int num, resto, inverso = 0;
+            cout << "Ingrese el numero entero: ";
+            cin >> num;
+            int original = num;
+            while (num > 0) {
+                resto = num % 10;
+                inverso = inverso * 10 + resto;
+                num = num / 10;
+            }
+            cout << "Numero original: " << original << endl;
+            cout << "Numero inverso: " << inverso << endl;
+            break;
+        }
+
+        case 2: {
+            int num;
+            cout << "Ingrese un numero entero: ";
+            cin >> num;
+
+            if (esPrimo(num))
+                cout << num << " es primo" << endl;
+            else
+                cout << num << " no es primo" << endl;
+            break;
+        }
+
+        case 3: {
+            promedioVentas();
+            break;
+        }
+
+        case 0: {
+            cout << "Salió del programa." << endl;
+            break;
+        }
+
+        default:
+            cout << "Opcion no valida" << endl;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+bool esPrimo(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i <= n / 2; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
+
+void cargar(int ventas[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese la venta del empleado " << i + 1 << ": ";
+        cin >> ventas[i];
+    }
+}
+
+void mostrar(int ventas[], int n) {
+    cout << "Ventas ingresadas: " << endl;
+    for (int i = 0; i < n; i++) {
+        cout << "Empleado " << i + 1 << ": " << ventas[i] << endl;
+    }
+}
+
+void promedioVentas() {
+    int n;
+    int ventas[MAX], suma = 0, promedio, mayor, menor;
+
+    cout << "Ingrese la cantidad de empleados: ";
+    cin >> n;
+    if (n <= 0 || n > MAX) {
+        cout << "Cantidad invalida" << endl;
+        return;
+    }
+
+    cargar(ventas, n);
+    mostrar(ventas, n);
+    mayor = menor = ventas[0];
+    for (int i = 0; i < n; i++) {
+        suma = suma + ventas[i];
+        if (ventas[i] > mayor) mayor = ventas[i];
+        if (ventas[i] < menor) menor = ventas[i];
+    }
+    promedio = suma / n;
+    cout << "Promedio General: " << promedio << endl;
+    cout << "Venta Mayor: " << mayor << endl;
+    cout << "Venta Menor: " << menor << endl;
+}
+
+
+
+// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
+// Depurar programa: F5 o menú Depurar > Iniciar depuración
+
+// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
+//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
+//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
+//   4. Use la ventana Lista de errores para ver los errores
+//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
+//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
