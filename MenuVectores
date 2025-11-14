@@ -5,6 +5,7 @@ using namespace std;
 float promedio(int vec[], int n);
 void cargar(int vec[], int n);
 void clasificar(int vec[], int n);
+void mayores(int vec[], int n);
 void mostrar(int vec[], int n);
 int main() {
     int n, vec[MAX], opcion;
@@ -17,6 +18,7 @@ int main() {
         cout << "2 para clasificar" << endl;
         cout << "3 para mostrar" << endl;
         cout << "4 para promedio" << endl;
+        cout << "5 para mayor y menor" << endl;
         cout << "0 para salir" << endl;
         cin >> opcion;
 
@@ -34,6 +36,9 @@ int main() {
             break;
         case 4:
             cout << "El promedio es " << promedio(vec, n) << endl;
+            break;
+        case 5:
+            mayores(vec, n);
             break;
         case 0:
             cout << "Saliendo." << endl;
@@ -66,6 +71,19 @@ float promedio(int vec[], int n)
         suma += vec[i];
     return suma / n;
 }
+void mayores(int vec[], int n) {
+    int mayor = vec[0];
+    int menor = vec[0];
+    for (int i = 1; i < n; i++) {
+        if (vec[i] > mayor)
+            mayor = vec[i];
+        if (vec[i] < menor)
+            menor = vec[i];
+    }
+    cout << "El mayor es: " << mayor << endl;
+    cout << "El menor es: " << menor << endl;
+}
+
 void clasificar(int vec[], int n)
 {
     for (int i = 0; i < n - 1; i++)
