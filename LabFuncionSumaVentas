@@ -1,0 +1,29 @@
+#include <iostream>
+#define MAX 100;
+using namespace std;
+
+//PROTOTIPOS
+
+void cargarMontos(int v[]);
+
+
+int main()
+{
+	int v[100];
+	cout << "Ingrese las compras que realizo cada dia de la semana: " << endl;
+	cargarMontos(v);
+	
+	return 0;
+}
+
+//DEFINIR
+
+void cargarMontos(int v[]) {
+	int suma=0;
+	for (int i = 1; i < ; i++) {
+		cout << "Dia " << i << "=";
+		cin >> v[i];
+		suma = suma + v[i];
+	}
+	cout << "el valor de la compra es: " << suma;
+}
