@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+//PROTOTIPOS
+
+void descuento (int &n);
+
+
+int main()
+{
+	int n;
+	cout << "Ingrese el total de la compra: ";
+	cin >> n;
+	descuento(n);
+	return 0;
+}
+
+//DEFINIR
+void descuento (int &n) {
+	n = n - (n * 0, 10);
+	cout << "El valor a pagar es: " << n;
+}
